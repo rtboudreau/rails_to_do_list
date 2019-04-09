@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_180827) do
+ActiveRecord::Schema.define(version: 2019_04_09_205900) do
 
   create_table "todo_items", force: :cascade do |t|
     t.string "content"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_04_03_180827) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "completed_at"
+    t.decimal "user_id"
     t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
   end
 
@@ -26,6 +27,14 @@ ActiveRecord::Schema.define(version: 2019_04_03_180827) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

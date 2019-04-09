@@ -9,6 +9,7 @@
         <div class="input-group-text"><i class="far fa-plus-square"></i></div>
       </div>
       <%= f.text_field :content, placeholder: "New To do"  %>
+      <%= f.hidden_field :user_id, value: session[:user_id] %>
       <button type="submit" class="btn btn-outline-light mb-0 float-right">Add Item</button>
     </div>
 
