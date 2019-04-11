@@ -1,17 +1,18 @@
 
+<div class="row clearfix">
+  <div class="col-12">
+    <div class="blank">
 
-<%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
-  <form class="form-inline">
-
-    <label class="sr-only">To Do Item</label>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <div class="input-group-text"><i class="far fa-plus-square"></i></div>
-      </div>
-      <%= f.text_field :content, placeholder: "New To do"  %>
-      <%= f.hidden_field :user_id, value: session[:user_id] %>
-      <button type="submit" class="btn btn-outline-dark mb-0 float-right">Add Item</button>
     </div>
+    <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
+      <div class="new_todo">
+        <%= f.text_field :content, placeholder: "New To do"  %>
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
+      </div>
+      <div class="submit_todo">
+        <%= f.button '<i class="far fa-plus-square"></i>'.html_safe, class: "new_todo_submit", title: 'Add New "To Do"', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
+      </div>
+    <% end %>
 
-  </form>
-<% end %>
+  </div>
+</div>
