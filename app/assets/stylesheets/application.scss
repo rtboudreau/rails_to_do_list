@@ -15,8 +15,12 @@
  */
  @import 'bootstrap';
 
- $white: #fff;
- $navy: rgba(19, 35, 47, 0.9);
+
+ $salmon: rgb(255, 87, 81);
+ $navy: rgb(4, 15, 61);
+ $navy_o:rgba(4, 15, 61, .5);
+ $white: rgb(255, 255, 255);
+ $grey: rgb(198, 196, 197);
 
 * {
 	box-sizing: border-box;
@@ -27,12 +31,7 @@ html {
 
 body {
  	height: 100%;
-  background: #fff;
-  // background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  // background:    -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  // background:     -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  // background:      -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  // background:         linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background: $white;
   font-family: 'Lato', sans-serif;
 }
 
@@ -46,18 +45,91 @@ body {
     clear: both;
 }
 
-#notice {
-  text-align: center;
-  position: absolute;
-  font-size: 0.6em;
-  color: #fff;
-  font-weight: 100;
-  bottom: -15px;
-  margin-left: -15px;
-  background: #4eb189;
-  -webkit-animation: fadeIn 3s forwards;
-  animation: fadeIn 3s forwards;
+/*buttons*/
+
+.btn-todo{
+  color: $white;
+  background: $navy;
+  transition: all .4s ease-in-out;
+  &:hover {
+    color: $white;
+    opacity: 0.75;
+  }
 }
+
+.navbar{
+  background: $white;
+  border-bottom: 2px solid $grey;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,.2);
+  padding: 0rem 2.5rem;
+  a{
+    color: $navy;
+  }
+}
+
+.nav-link {
+  display: inline-block;
+}
+.nav_icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 800;
+  color:$salmon;
+  content: "\f2bd";
+  display: inline-block;
+}
+
+.sign-up {
+    color: $salmon !important;
+    border: 1px solid $navy;
+    font-size: .85em;
+    font-weight: 800;
+    padding: 10px;
+    border-radius: 4px;
+    width: 115px;
+    text-align: center;
+    transition: all .4s ease-in-out;
+    &:hover{
+      background: $grey;
+    }
+}
+
+// #notice {
+//   margin-top:90px;
+//   text-align: center;
+//   position: absolute;
+//   font-size: 0.6em;
+//   color: #fff;
+//   font-weight: 100;
+//   bottom: -15px;
+//   margin-left: -15px;
+//   background: #4eb189;
+//   -webkit-animation: fadeIn 3s forwards;
+//   animation: fadeIn 3s forwards;
+// }
+
+#notice {
+    text-align: center;
+    position: fixed;
+    margin: 0 auto;
+    font-size: 0.6em;
+    color: #fff;
+    font-weight: 100;
+    bottom: 0;
+    /* margin-left: -15px; */
+    background: #4eb189;
+    padding: 10px 20px 5px;
+     -webkit-animation: fadeIn 3s forwards;
+     animation: fadeIn 3s forwards;
+}
+
+#notice::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f058";
+  display: block;
+}
+
+
 
 .notice_slide_in{
   padding: 15px 10px;
@@ -72,18 +144,11 @@ body {
   }
 }
 
-
-
-// .container {
-// 	width: 50%;
-// 	max-width: 750px;
-// 	background: $white_opaque;
-// 	margin: 3em auto 0 auto;
-// 	border-radius: 7px;
-// 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
-// 	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
-// 	padding: 1em 0;
-// }
+.navbar{
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+}
 
 .todo_list_body{
   background: $navy;
@@ -100,14 +165,14 @@ body {
 	font-weight: 700;
 	font-size: 2.5rem;
 	text-transform: uppercase;
-	color: $white;
+	color: $navy;
 	margin: 0;
 	a {
 		text-decoration: none;
-		color: $white;
+		color: $navy;
 		transition: all .4s ease-in-out;
 		&:hover {
-			opacity: 0.4;
+			opacity: 0.5;
 		}
 	}
 }
@@ -115,14 +180,15 @@ body {
 .todo_list_sub_title {
 	margin: 0 0 2em 0;
 	text-align: center;
-	font-size: 0.9em;
-	color: $white;
-	font-weight: 100;
+  text-transform: capitalize;
+	font-size: 1em;
+	color: $navy;
+	font-weight: 200;
 }
 
 .index_row {
 	padding: 2em;
-	border-bottom: 1px solid rgba(250,250,250, .3);
+	border-bottom: 2px solid $salmon;
 	.todo_list_sub_title {
 		margin-bottom: 0;
 	}
@@ -173,7 +239,7 @@ body {
 	}
 	#form {
 		margin-top: 2em;
-		input[type="text"] {
+		input[type="text"]{
 			width: 55%;
 			display: inline-block;
 			outline: none;
@@ -182,69 +248,44 @@ body {
 			height: 50px;
 			border-radius: 0px;
 			padding: 1em 2em;
+		  }
 		}
-		input[type="submit"] {
-			background: rgba(250,250,250,.4);
-			outline: none;
-			border: none;
-			height: 50px;
-			border-radius: 0px!important;
-			width: 25%;
-			display: inline-block;
-			transition: all .4s ease-in-out;
-			cursor: pointer;
-			&:hover {
-				background: $white;
-			}
-		}
-		::-webkit-input-placeholder { color: $white; }
-	}
 }
+
+
 
 .links {
 	display: block;
 	margin: 1.5em auto 0 auto;
 	text-align: center;
 	font-size: 0.8em;
-	color: $white;
+	color: $salmon;
 	a {
-		color: $white;
+		color: $salmon;
 	}
 }
 
 .forms {
-	padding: 0 5%;
+	padding: 0 2.5%;
 }
 label {
-	color: $white;
+	color: $navy;
+  margin-bottom: 0;
 }
-input[type="text"], textarea {
-	width: 100%;
-	display: inline-block;
-	outline: none;
-	background: rgba(250,250,250,.4);
-	border: none;
-	height: 40px;
-	border-radius: 4px;
-	padding: 1em 2em;
+input[type="text"], textarea, input#password, input#user_password, input#user_password_confirmation {
+width: 100%;
+display: inline-block;
+height: 40px;
+padding: 1em;
+border-color: #040f3c;
+border-radius: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-top: 0;
+border-left: 0;
+border-right: 0;
+margin-bottom: .75em;
 }
 textarea {
 	height: 200px;
 }
-input[type="submit"] {
-	background: $white;
-	outline: none;
-	border: none;
-	height: 40px;
-	border-radius: 0px;
-	width: 25%;
-	display: inline-block;
-	transition: all .4s ease-in-out;
-	cursor: pointer;
-	color: $white;
-	&:hover {
-		background: $white;
-		color: $white;
-	}
-}
-::-webkit-input-placeholder { color: $white; }

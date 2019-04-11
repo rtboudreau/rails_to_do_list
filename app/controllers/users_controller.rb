@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.valid?
       session[:user_id] = user.id
-      redirect_to todo_lists_path
+      redirect_to user_path(session[:user_id])
     else
       flash[:messages] = user.errors.full_messages
       redirect_to new_user_path
