@@ -1,6 +1,9 @@
 
-  <div class="text-center">
-    <p class="text-center text-capitalize"><%=@user.username%>'s <%= pluralize(@user.todo_lists.count, 'List') %></p>
+<div class="user_info_bar">
+  <p class="text-capitalize my-2"><i class="fas fa-list"></i> <%=@user.username%>'s <%= pluralize(@user.todo_lists.count, 'List') %> </p>
+</div>
+
+  <div class="text-center mt-5">
       <% @user.todo_lists.each do |t| %>
           <div class="index_row clearfix">
             <h2 class="todo_list_title"><%=link_to t.title, todo_list_path(t)%></h2>
@@ -9,6 +12,7 @@
       <% end %>
   </div>
 
-  <div class="links">
-    <%= link_to "New To do List", new_todo_list_path %>
+  <div class="text-center mt-4">
+    <%= link_to "<i class='fas fa-plus'></i> New To do List".html_safe, new_todo_list_path, {class: 'btn btn-lg btn-todo btn-login text-uppercase font-weight-bold mb-2'} %>
+
   </div>

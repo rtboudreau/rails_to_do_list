@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
  helper_method :logged_in?
   helper_method :current_user
+  add_flash_types :success, :warning, :danger, :info
 
  before_action :authenticate_user
 
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
  end
 
- def authenticate_user
+  def authenticate_user
     if !logged_in?
       redirect_to login_path
     end

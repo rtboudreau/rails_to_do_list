@@ -23,3 +23,10 @@
   $(function(){
     $('[data-toggle="tooltip"]').tooltip();
   });
+
+//flash message appear / disappear
+    $(function(){
+      setTimeout(function(){
+        $('#flash').fadeOut( 3500 );
+     })
+   });

@@ -15,12 +15,45 @@
  */
  @import 'bootstrap';
 
+ // Small tablets and large smartphones (landscape view)
+ $screen-sm-min: 576px;
+ // Small tablets (portrait view)
+ $screen-md-min: 768px;
+ // Tablets and small desktops
+ $screen-lg-min: 992px;
+ // Large tablets and desktops
+ $screen-xl-min: 1200px;
+
+ // Small devices
+@mixin sm {
+   @media (min-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+// Medium devices
+@mixin md {
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+// Large devices
+@mixin lg {
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+// Extra large devices
+@mixin xl {
+   @media (min-width: #{$screen-xl-min}) {
+       @content;
+   }
+}
 
  $salmon: rgb(255, 87, 81);
  $navy: rgb(4, 15, 61);
  $navy_o:rgba(4, 15, 61, .5);
  $white: rgb(255, 255, 255);
- $grey: rgb(198, 196, 197);
+ $grey: rgb(222, 222, 222);
 
 * {
 	box-sizing: border-box;
@@ -47,6 +80,13 @@ body {
 
 /*buttons*/
 
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+}
+
 .btn-todo{
   color: $white;
   background: $navy;
@@ -57,16 +97,29 @@ body {
   }
 }
 
+/*login / homepage */
+
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.login-heading {
+  font-weight: 600;
+}
+
 .navbar{
   background: $white;
-  border-bottom: 2px solid $grey;
-  box-shadow: 0 0 5px -1px rgba(0,0,0,.2);
-  padding: 0rem 2.5rem;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.35);
+  height: 60px;
   a{
     color: $navy;
   }
 }
 
+.navbar-logo {
+  max-width: 150px;
+}
 .nav-link {
   display: inline-block;
 }
@@ -76,6 +129,30 @@ body {
   color:$salmon;
   content: "\f2bd";
   display: inline-block;
+  @include sm {
+    margin-right: -5px;
+  }
+}
+
+.navbar-collapse {
+  margin-top: 10px;
+  box-shadow: 0px 6px 7px -2px rgba(0,0,0,0.15);
+  @include sm {
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+.bg-image-grey {
+  background-image: image-url("todos_background_1000.jpg");
+  filter: grayscale(100%);
+  background-size: cover;
+  background-position: center;
+}
+.bg-image {
+  background-image: image-url("todos_background_1000.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .sign-up {
@@ -93,36 +170,42 @@ body {
     }
 }
 
-// #notice {
-//   margin-top:90px;
-//   text-align: center;
-//   position: absolute;
-//   font-size: 0.6em;
-//   color: #fff;
-//   font-weight: 100;
-//   bottom: -15px;
-//   margin-left: -15px;
-//   background: #4eb189;
-//   -webkit-animation: fadeIn 3s forwards;
-//   animation: fadeIn 3s forwards;
-// }
-
-#notice {
-    text-align: center;
+.user_info_bar {
     position: fixed;
+    text-align: center;
+    color:$white;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    top: 57px;
+    right: 0;
+    display: block;
+    background: #ff5851;
+    width: 100%;
+    @include md {
+        width: 66.666%;
+    }
+    @include lg{
+      width: 50%;
+    }
+}
+
+.notice {
+    position: absolute;
+    width: 85%;
+    text-align: center;
     margin: 0 auto;
+    left:0;
+    right:0;
     font-size: 0.6em;
     color: #fff;
     font-weight: 100;
-    bottom: 0;
-    /* margin-left: -15px; */
-    background: #4eb189;
+    background: $salmon;
     padding: 10px 20px 5px;
-     -webkit-animation: fadeIn 3s forwards;
-     animation: fadeIn 3s forwards;
+     // -webkit-animation: fadeIn 3s forwards;
+     // animation: fadeIn 3s forwards;
 }
 
-#notice::before{
+.notice::before{
   font-family: "Font Awesome 5 Free";
   font-weight: 400;
   content: "\f058";
@@ -131,24 +214,12 @@ body {
 
 
 
-.notice_slide_in{
-  padding: 15px 10px;
-}
-
-@keyframes fadeIn {
-  0%, 100% {
-    opacity: 0
-  }
-  15%, 85% {
-    opacity: 1
-  }
-}
-
 .navbar{
   position: fixed;
   z-index: 5;
   width: 100%;
 }
+
 
 .todo_list_body{
   background: $navy;
@@ -157,7 +228,7 @@ body {
 }
 
 .todo_list_header {
-  border-bottom: 15px solid #4eb189;
+  border-bottom: 2px solid $grey;
 }
 
 .todo_list_title {
@@ -166,7 +237,7 @@ body {
 	font-size: 2.5rem;
 	text-transform: uppercase;
 	color: $navy;
-	margin: 0;
+	margin-bottom: 0;
 	a {
 		text-decoration: none;
 		color: $navy;
@@ -189,9 +260,13 @@ body {
 .index_row {
 	padding: 2em;
 	border-bottom: 2px solid $salmon;
+  transition: all .4s ease-in-out;
 	.todo_list_sub_title {
 		margin-bottom: 0;
 	}
+  &:hover{
+    background: $grey;
+  }
 }
 
 #todo_items_wrapper {

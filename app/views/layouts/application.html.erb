@@ -11,115 +11,28 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
 
-  <style>
-  root {
-    --input-padding-x: 1.5rem;
-    --input-padding-y: 0.75rem;
-  }
-
-  .login,
-  .image {
-    min-height: 100vh;
-  }
-
-  .bg-image-blur {
-    background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80');
-    filter: grayscale(100%);
-    background-size: cover;
-    background-position: center;
-  }
-  .bg-image {
-    background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80');
-    transition: ease .45s;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .login-heading {
-    font-weight: 300;
-  }
-
-  .btn-login {
-    font-size: 0.9rem;
-    letter-spacing: 0.05rem;
-    padding: 0.75rem 1rem;
-    border-radius: 2rem;
-  }
-
-  .form-label-group {
-    position: relative;
-    margin-bottom: 1rem;
-  }
-
-  .form-label-group>input,
-  .form-label-group>label {
-    padding: var(--input-padding-y) var(--input-padding-x);
-    height: auto;
-    border-radius: 2rem;
-  }
-
-  .form-label-group>label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    margin-bottom: 0;
-    /* Override default `<label>` margin */
-    line-height: 1.5;
-    color: #495057;
-    cursor: text;
-    /* Match the input under the label */
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    transition: all .1s ease-in-out;
-  }
-
-  .form-label-group input::-webkit-input-placeholder {
-    color: transparent;
-  }
-
-  .form-label-group input:-ms-input-placeholder {
-    color: transparent;
-  }
-
-  .form-label-group input::-ms-input-placeholder {
-    color: transparent;
-  }
-
-  .form-label-group input::-moz-placeholder {
-    color: transparent;
-  }
-
-  .form-label-group input::placeholder {
-    color: transparent;
-  }
-
-
-  </style>
-
   <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg static-top">
+  <nav class="navbar navbar-expand-sm navbar-toggler-icon static-top px-0 px-sm-3">
     <div class="container-fluid">
       <% if logged_in?  %>
-        <%= link_to 'To-Dos <img src="http://placehold.it/150x50?text=Logo" alt="">'.html_safe, user_path(session[:user_id]), {class: 'navbar-brand'} %>
+        <%= link_to image_tag("todo_logo_yes_login.svg", :alt => "to-dos' logged in logo", :class => "navbar-logo pl-4 pl-sm-0"), user_path(session[:user_id]), {class: 'navbar-brand'} %>
       <% else %>
-        <%= link_to 'To-Dos <img src="http://placehold.it/150x50?text=Logo" alt="">'.html_safe, login_path, {class: 'navbar-brand'} %>
+        <%= link_to image_tag("todo_logo_no_login.svg", :alt => "to-dos' logged out logo", :class => "navbar-logo pl-4 pl-sm-0"), login_path, {class: 'navbar-brand'} %>
       <% end %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler mr-4 navbar-light" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav bg-white ml-auto">
           <% if logged_in?  %>
-            <li class="nav-item nav_icon">
+            <li class="nav-item nav_icon px-4 px-sm-0">
               <%= link_to current_user.username.capitalize, user_path(session[:user_id]), {class: 'nav-link'} %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item px-4 px-sm-0">
               <%= link_to "New List", new_todo_list_path, {class: 'nav-link'} %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item px-4 px-sm-0">
                 <%= link_to "Logout", logout_path, {class: 'nav-link', method: 'delete'} %>
             </li>
           <% else %>
@@ -133,12 +46,14 @@
     </div>
   </nav>
 
+
+
   <div class="container-fluid">
       <div class="row no-gutter">
         <% if logged_in?  %>
           <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
         <% else %>
-          <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image-blur"></div>
+          <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image-grey"></div>
         <% end %>
         <div class="col-md-8 col-lg-6">
           <div class="login d-flex align-items-center py-5">
