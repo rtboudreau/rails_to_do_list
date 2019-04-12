@@ -24,7 +24,7 @@
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-//flash message appear / disappear
+//flash message appear/disappear
     $(function(){
       setTimeout(function(){
         $('#flash').fadeOut( 3500 );

@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get '*unmatched_route', to: 'application#raise_not_found'
 
 end

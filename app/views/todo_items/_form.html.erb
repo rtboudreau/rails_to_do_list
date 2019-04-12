@@ -1,18 +1,16 @@
-
 <div class="row clearfix">
-  <div class="col-12">
-    <div class="blank">
-      <i class="fas fa-arrow-right"></i>
-    </div>
-    <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
+   <div class="col-12">
+      <div class="blank">
+         <i class="fas fa-arrow-right"></i>
+      </div>
+      <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
       <div class="new_todo">
-        <%= f.text_field :content, placeholder: "New To Do Item", :required => true  %>
-        <%= f.hidden_field :user_id, value: session[:user_id] %>
+         <%= f.text_field :content, placeholder: "New To Do Item", :required => true  %>
+         <%= f.hidden_field :user_id, value: session[:user_id] %>
       </div>
       <div class="submit_todo">
-        <%= f.button '<i class="far fa-plus-square"></i>'.html_safe, class: "new_todo_submit", title: 'Add New "To Do"', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
+         <%= f.button '<i class="far fa-plus-square"></i>'.html_safe, class: "new_todo_submit", title: 'Add New "To Do"', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
       </div>
-    <% end %>
-
-  </div>
+      <% end %>
+   </div>
 </div>

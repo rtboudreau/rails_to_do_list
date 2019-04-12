@@ -1,14 +1,11 @@
 <div class="row">
-  <div class="col-12  mx-auto m-4 pb-4">
-
+  <div class="col-12 mx-auto m-4 pb-4">
     <h1 class="todo_list_title mb-4">New To do List</h1>
-
     <div class="forms">
       <%= render 'form', todo_list: @todo_list %>
     </div>
-
     <div class="links">
-      <%= link_to 'Back', user_path(session[:user_id]) %>
+      <%= link_to 'Cancel', user_path(session[:user_id]) %>
     </div>
   </div>
 </div>

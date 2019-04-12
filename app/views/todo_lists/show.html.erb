@@ -1,43 +1,35 @@
 <div class="row">
-  <div class="col-12 col-md-10 mx-auto m-4 pb-4">
-
-    <div class="row todo_list_header">
-      <div class="col-12">
-        <h2 class="todo_list_title pt-2"><%= @todo_list.title %></h2>
-        <p class="todo_list_sub_title"><%= @todo_list.description %></p>
+   <div class="col-12 col-md-10 mx-auto m-4 pb-4">
+      <div class="row todo_list_header">
+         <div class="col-12">
+            <h2 class="todo_list_title pt-2"><%= @todo_list.title %></h2>
+            <p class="todo_list_sub_title"><%= @todo_list.description %></p>
+         </div>
       </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-12 pl-2 pr-0">
-        <div id="todo_items_wrapper">
-          <%= render @todo_list.todo_items %>
-          <div id="form" class="mx-auto">
-            <%= render "todo_items/form" %>
-          </div>
-        </div>
+      <div class="row">
+         <div class="col-12 pl-2 pr-0">
+            <div id="todo_items_wrapper">
+               <%= render @todo_list.todo_items %>
+               <div id="form" class="mx-auto">
+                  <%= render "todo_items/form" %>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <div id="flash" class="container">
-          <% flash.each do |key, value| %>
-            <div class="notice mx-auto notice-<%= key %>"><%= value %></div>
-          <% end %>
-          <%= yield %>
-        </div>
+      <div class="row">
+         <div class="col-12">
+            <div id="flash" class="container">
+               <% flash.each do |key, value| %>
+               <div class="notice mx-auto notice-<%= key %>"><%= value %></div>
+               <% end %>
+               <%= yield %>
+            </div>
+         </div>
       </div>
-    </div>
-
-    <div class="links mt-5">
-      <%= link_to 'Edit List', edit_todo_list_path(@todo_list) %> |
-      <%= link_to 'Delete List', todo_list_path(@todo_list), method: :delete, data: {confirm: "Are You Sure You Want to Delete Your List?"} %> |
-      <%= link_to 'Home', user_path(session[:user_id]) %>
-    </div>
-
-
-
-    </div>
-    </div>
+      <div class="links mt-5">
+         <%= link_to 'Edit List', edit_todo_list_path(@todo_list) %> |
+         <%= link_to 'Delete List', todo_list_path(@todo_list), method: :delete, data: {confirm: "Are You Sure You Want to Delete Your List?"} %> |
+         <%= link_to 'Home', user_path(session[:user_id]) %>
+      </div>
+   </div>
+</div>

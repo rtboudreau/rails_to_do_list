@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   skip_before_action :authenticate_user, only: [:new, :create]
 
   def new
@@ -19,4 +20,5 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to login_path
   end
+
 end
