@@ -15,8 +15,45 @@
  */
  @import 'bootstrap';
 
- $white: #fff;
- $navy: rgba(19, 35, 47, 0.9);
+ // Small tablets and large smartphones (landscape view)
+ $screen-sm-min: 576px;
+ // Small tablets (portrait view)
+ $screen-md-min: 768px;
+ // Tablets and small desktops
+ $screen-lg-min: 992px;
+ // Large tablets and desktops
+ $screen-xl-min: 1200px;
+
+ // Small devices
+@mixin sm {
+   @media (min-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+// Medium devices
+@mixin md {
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+// Large devices
+@mixin lg {
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+// Extra large devices
+@mixin xl {
+   @media (min-width: #{$screen-xl-min}) {
+       @content;
+   }
+}
+
+ $salmon: rgb(255, 87, 81);
+ $navy: rgb(4, 15, 61);
+ $navy_o:rgba(4, 15, 61, .5);
+ $white: rgb(255, 255, 255);
+ $grey: rgb(222, 222, 222);
 
 * {
 	box-sizing: border-box;
@@ -27,12 +64,7 @@ html {
 
 body {
  	height: 100%;
-  background: #fff;
-  // background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  // background:    -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  // background:     -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  // background:      -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  // background:         linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background: $white;
   font-family: 'Lato', sans-serif;
 }
 
@@ -46,44 +78,148 @@ body {
     clear: both;
 }
 
-#notice {
-  text-align: center;
-  position: absolute;
-  font-size: 0.6em;
-  color: #fff;
-  font-weight: 100;
-  bottom: -15px;
-  margin-left: -15px;
-  background: #4eb189;
-  -webkit-animation: fadeIn 3s forwards;
-  animation: fadeIn 3s forwards;
+/*buttons*/
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
 }
 
-.notice_slide_in{
-  padding: 15px 10px;
-}
-
-@keyframes fadeIn {
-  0%, 100% {
-    opacity: 0
-  }
-  15%, 85% {
-    opacity: 1
+.btn-todo{
+  color: $white;
+  background: $navy;
+  transition: all .4s ease-in-out;
+  &:hover {
+    color: $white;
+    opacity: 0.75;
   }
 }
 
+/*login / homepage */
+
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.login-heading {
+  font-weight: 600;
+}
+
+.navbar{
+  background: $white;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.35);
+  height: 60px;
+  a{
+    color: $navy;
+  }
+}
+
+.navbar-logo {
+  max-width: 150px;
+}
+.nav-link {
+  display: inline-block;
+}
+.nav_icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 800;
+  color:$salmon;
+  content: "\f2bd";
+  display: inline-block;
+  @include sm {
+    margin-right: -5px;
+  }
+}
+
+.navbar-collapse {
+  margin-top: 10px;
+  box-shadow: 0px 6px 7px -2px rgba(0,0,0,0.15);
+  @include sm {
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+.bg-image-grey {
+  background-image: image-url("todos_background_1000.jpg");
+  filter: grayscale(100%);
+  background-size: cover;
+  background-position: center;
+}
+.bg-image {
+  background-image: image-url("todos_background_1000.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.sign-up {
+    color: $salmon !important;
+    border: 1px solid $navy;
+    font-size: .85em;
+    font-weight: 800;
+    padding: 10px;
+    border-radius: 4px;
+    width: 115px;
+    text-align: center;
+    transition: all .4s ease-in-out;
+    &:hover{
+      background: $grey;
+    }
+}
+
+.user_info_bar {
+    position: fixed;
+    text-align: center;
+    color:$white;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    top: 57px;
+    right: 0;
+    display: block;
+    background: #ff5851;
+    width: 100%;
+    @include md {
+        width: 66.666%;
+    }
+    @include lg{
+      width: 50%;
+    }
+}
+
+.notice {
+    position: absolute;
+    width: 85%;
+    text-align: center;
+    margin: 0 auto;
+    left:0;
+    right:0;
+    font-size: 0.6em;
+    color: #fff;
+    font-weight: 100;
+    background: $salmon;
+    padding: 10px 20px 5px;
+     // -webkit-animation: fadeIn 3s forwards;
+     // animation: fadeIn 3s forwards;
+}
+
+.notice::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f058";
+  display: block;
+}
 
 
-// .container {
-// 	width: 50%;
-// 	max-width: 750px;
-// 	background: $white_opaque;
-// 	margin: 3em auto 0 auto;
-// 	border-radius: 7px;
-// 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
-// 	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
-// 	padding: 1em 0;
-// }
+
+.navbar{
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+}
+
 
 .todo_list_body{
   background: $navy;
@@ -92,7 +228,7 @@ body {
 }
 
 .todo_list_header {
-  border-bottom: 15px solid #4eb189;
+  border-bottom: 2px solid $grey;
 }
 
 .todo_list_title {
@@ -100,14 +236,14 @@ body {
 	font-weight: 700;
 	font-size: 2.5rem;
 	text-transform: uppercase;
-	color: $white;
-	margin: 0;
+	color: $navy;
+	margin-bottom: 0;
 	a {
 		text-decoration: none;
-		color: $white;
+		color: $navy;
 		transition: all .4s ease-in-out;
 		&:hover {
-			opacity: 0.4;
+			opacity: 0.5;
 		}
 	}
 }
@@ -115,136 +251,145 @@ body {
 .todo_list_sub_title {
 	margin: 0 0 2em 0;
 	text-align: center;
-	font-size: 0.9em;
-	color: $white;
-	font-weight: 100;
+  text-transform: capitalize;
+	font-size: 1em;
+	color: $navy;
+	font-weight: 200;
 }
 
 .index_row {
 	padding: 2em;
-	border-bottom: 1px solid rgba(250,250,250, .3);
+	border-bottom: 2px solid $salmon;
+  transition: all .4s ease-in-out;
 	.todo_list_sub_title {
 		margin-bottom: 0;
 	}
+  &:hover{
+    background: $grey;
+  }
 }
 
 #todo_items_wrapper {
 	.row {
 		border-bottom: 2px solid rgba(250,250,250, .3);
-		.complete {
+		.complete, .blank {
 			width: 10%;
 			float: left;
 			text-align: center;
 			padding: 1em 0;
 		}
-		.todo_item {
+		.todo_item, .new_todo {
 			width: 80%;
 			float: left;
 			p {
 				margin: 0;
 				padding: 1em;
-				color: $white;
+				color: $navy;
 				font-weight: 100;
 			}
 		}
-		.trash {
+		.trash{
       width: 10%;
       height: 100%;
       float: left;
       text-align: center;
       padding: 1em 0;
-      background: #37485678;
       i {
-      color: rgba(177, 26, 26, 0.95);
+      color: $navy;
       transition: all .4s ease-in-out;
         &:hover {
-          color: rgb(218, 0, 0);
+          opacity: 1;
+          color: $white;
           }
         }
+        &:hover{
+          background: $salmon;
+
+        }
       }
+      .new_todo_submit{
+        width: 10%;
+        height: 100%;
+        float: left;
+        text-align: center;
+        padding: 0.5em 0;
+        background: transparent;
+        border: none;
+        font-size: 1.25em;
+        i {
+        color: $salmon;
+        transition: all .4s ease-in-out;
+          &:hover {
+            color: $salmon;
+            opacity: 1;
+            transform: scale(1.25);
+            }
+      }
+    }
 
 		i {
-			color: $white;
+			color: $navy;
 			transition: all .4s ease-in-out;
 			&:hover {
-				color: $white;
+        opacity: .5;
+				color: $navy;
 			}
 		}
 	}
 	#form {
 		margin-top: 2em;
-		input[type="text"] {
-			width: 55%;
-			display: inline-block;
-			outline: none;
-			background: rgba(250,250,250,.4);
-			border: none;
-			height: 50px;
-			border-radius: 0px;
-			padding: 1em 2em;
+		input[type="text"]{
+      display: inline-block;
+      height: 40px;
+      padding: 1em;
+      border-color: $navy;
+      border-radius: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      margin-bottom: .75em;
+		  }
 		}
-		input[type="submit"] {
-			background: rgba(250,250,250,.4);
-			outline: none;
-			border: none;
-			height: 50px;
-			border-radius: 0px!important;
-			width: 25%;
-			display: inline-block;
-			transition: all .4s ease-in-out;
-			cursor: pointer;
-			&:hover {
-				background: $white;
-			}
-		}
-		::-webkit-input-placeholder { color: $white; }
-	}
 }
+
+
 
 .links {
 	display: block;
 	margin: 1.5em auto 0 auto;
 	text-align: center;
 	font-size: 0.8em;
-	color: $white;
+	color: $salmon;
 	a {
-		color: $white;
+		color: $salmon;
 	}
 }
 
 .forms {
-	padding: 0 5%;
+	padding: 0 2.5%;
 }
 label {
-	color: $white;
+	color: $navy;
+  margin-bottom: 0;
 }
-input[type="text"], textarea {
-	width: 100%;
-	display: inline-block;
-	outline: none;
-	background: rgba(250,250,250,.4);
-	border: none;
-	height: 40px;
-	border-radius: 4px;
-	padding: 1em 2em;
+input[type="text"], textarea, input#password, input#user_password, input#user_password_confirmation {
+width: 100%;
+display: inline-block;
+height: 40px;
+padding: 1em;
+border-color: $navy;
+border-radius: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-top: 0;
+border-left: 0;
+border-right: 0;
+margin-bottom: .75em;
 }
 textarea {
 	height: 200px;
+  border-left: 2px solid $navy;
+  border-bottom: 2px solid $navy;
 }
-input[type="submit"] {
-	background: $white;
-	outline: none;
-	border: none;
-	height: 40px;
-	border-radius: 0px;
-	width: 25%;
-	display: inline-block;
-	transition: all .4s ease-in-out;
-	cursor: pointer;
-	color: $white;
-	&:hover {
-		background: $white;
-		color: $white;
-	}
-}
-::-webkit-input-placeholder { color: $white; }

@@ -9,7 +9,7 @@ class TodoItemsController < ApplicationController
 
   def complete
     @todo_item.update_attribute(:completed_at, Time.now)
-    redirect_to @todo_list, notice: "Nice! To Do Item Completed."
+    redirect_to @todo_list, success: 'Task Completed!'
   end
 
   def destroy
@@ -32,7 +32,7 @@ class TodoItemsController < ApplicationController
   end
 
   def todo_item_params
-    params[:todo_item].permit(:content)
+    params[:todo_item].permit(:content, :user_id)
   end
 
 end

@@ -17,16 +17,3 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
-
-
-//Bootstrap tooltip
-  $(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-  });
-
-//flash message appear / disappear
-    $(function(){
-      setTimeout(function(){
-        $('#flash').fadeOut( 3500 );
-     })
-   });

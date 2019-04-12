@@ -1,0 +1,34 @@
+
+
+<div class="col-lg-8 mx-auto">
+  <% if flash[:message] %>
+      <h3><%= flash[:message] %></h3>
+   <% end %>
+
+  <h3 class="login-heading mb-4">Welcome back!</h3>
+
+
+  <%= form_tag login_path%>
+
+
+    <div >
+      <%= label_tag :username %>
+      <%= text_field_tag :username %>
+    </div>
+
+
+    <div >
+        <%= label_tag :password %> <%= "  " %>
+        <%= password_field_tag :password %>
+      </div>
+
+
+
+    <button class="btn btn-lg btn-todo btn-block btn-login text-uppercase font-weight-bold mb-2" name="commit" data-disable-with="Log in" type="submit" value="Log in" />Log in</button>
+
+    <div class="links">
+      <%= link_to 'Create A New Account', new_user_path %>
+    </div>
+
+
+</div>

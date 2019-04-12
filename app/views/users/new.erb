@@ -1,0 +1,30 @@
+
+<div class="col-lg-8 mx-auto">
+  <% if flash[:messages] %>
+    <% flash[:messages].each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  <% end %>
+
+  <h3 class="login-heading mb-4">Sign Up for To-Dos!</h3>
+
+
+  <%= form_for @user do |f| %>
+    <%= f.label :username %>
+    <div class="field">
+      <%= f.text_field :username %>
+    </div>
+    <%= f.label :password %>
+    <div class="field">
+      <%= f.password_field :password %>
+    </div>
+    <%= f.label :password_confirmation %>
+    <div class="field">
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <%= f.submit 'Create User', {class: 'btn btn-lg btn-todo btn-block btn-login text-uppercase font-weight-bold mb-2'} %>
+  <% end %>
+  <div class="links">
+    <%= link_to 'Already Have an Account?', login_path, {class: 'text-center'} %>
+  </div>
+</div>

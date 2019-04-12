@@ -13,15 +13,18 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :required => true %>
+    <%= form.hidden_field :user_id, value: session[:user_id] %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+
+
+  <div class="field mb-3">
+    <%= form.label :description, class: "mb-3" %>
+    <%= form.text_area :description, :required => true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <button type="submit" class="btn btn-lg btn-todo btn-block btn-login text-uppercase font-weight-bold mb-2">Submit</button>
   </div>
 <% end %>
