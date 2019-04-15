@@ -114,6 +114,7 @@ body {
   height: 60px;
   a{
     color: $navy;
+    letter-spacing: .02rem;
   }
 }
 
@@ -285,7 +286,7 @@ body {
 				margin: 0;
 				padding: 1em;
 				color: $navy;
-				font-weight: 100;
+				font-weight: 400;
 			}
 		}
 		.trash{
