@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_04_10_173634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "completed_at"
-    t.decimal "user_id"
+    t.integer "user_id"
     t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
   end
 
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_04_10_173634) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "user_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
