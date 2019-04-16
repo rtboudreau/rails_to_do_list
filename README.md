@@ -1,24 +1,27 @@
-# README
+# To-Dos Rails Application
+Project by Reid Boudreau
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To-Dos Rail app allows users to create basic, easy-to-use, to-do lists to keep track of, well... whatever they want.  To-Do lists & list items can be created, edited, & destroyed.
 
-Things you may want to cover:
+View the app and create your To-Do lists here: https://to--dos.herokuapp.com
+View a quick YouTube Tutorial here: https://youtu.be/jjl4xwLY-pw
 
-* Ruby version
+This app was created with Ruby on Rails v. 5.2.2 & inspired by [Mackenzie Child's YouTube Tutorial](https://youtu.be/fd1Vn-Wvy2w).
 
-* System dependencies
+Installation Instructions
+-------------------------------------
 
-* Configuration
+1. Clone the repository to your computer
+2. Run ```bundle install``` to install the required Gems
+3. Run ```rails db:create``` and ```rails db:migrate```
+4. Run ```rails s``` to start local server
+5. Open http://localhost:3000 in your browser
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+Tools used:
+Bootstrap - https://getbootstrap.com/
+Font Awesome - https://fontawesome.com/
+Unsplash - https://unsplash.com/
+StrongPassword - https://github.com/bdmac/strong_password
+Adobe Photoshop & Illustrator
+```

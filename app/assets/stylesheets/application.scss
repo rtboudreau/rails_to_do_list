@@ -97,7 +97,7 @@ body {
   }
 }
 
-/*login / homepage */
+/*login & app layout */
 
 .login,
 .image {
@@ -112,36 +112,44 @@ body {
   background: $white;
   box-shadow: 0 0 5px -1px rgba(0,0,0,0.35);
   height: 60px;
-  a{
-    color: $navy;
-    letter-spacing: .02rem;
-  }
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+
+    a{
+      color: $navy;
+      letter-spacing: .02rem;
+    }
 }
 
 .navbar-logo {
   max-width: 150px;
 }
+
 .nav-link {
   display: inline-block;
 }
+
 .nav_icon::before{
   font-family: "Font Awesome 5 Free";
   font-weight: 800;
   color:$salmon;
   content: "\f2bd";
   display: inline-block;
-  @include sm {
-    margin-right: -5px;
-  }
+
+    @include sm {
+      margin-right: -5px;
+    }
 }
 
 .navbar-collapse {
   margin-top: 10px;
   box-shadow: 0px 6px 7px -2px rgba(0,0,0,0.15);
-  @include sm {
-    margin-top: 0;
-    box-shadow: none;
-  }
+
+    @include sm {
+      margin-top: 0;
+      box-shadow: none;
+    }
 }
 
 .bg-image-grey {
@@ -157,31 +165,49 @@ body {
 }
 
 .sign-up {
-    color: $salmon !important;
-    border: 1px solid $navy;
-    font-size: .85em;
-    font-weight: 800;
-    padding: 10px;
-    border-radius: 4px;
-    width: 115px;
-    text-align: center;
-    transition: all .4s ease-in-out;
+  color: $salmon !important;
+  border: 1px solid $navy;
+  font-size: .85em;
+  font-weight: 800;
+  padding: 10px;
+  border-radius: 4px;
+  width: 115px;
+  text-align: center;
+  transition: all .4s ease-in-out;
+
     &:hover{
       background: $grey;
     }
 }
 
+.links {
+	display: block;
+	margin: 1.5em auto 0 auto;
+	text-align: center;
+	font-size: 0.8em;
+	color: $salmon;
+
+    a {
+  		color: $salmon;
+  	}
+}
+
+
+
+/* user homepage info bar */
+
 .user_info_bar {
-    position: fixed;
-    text-align: center;
-    color:$white;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    top: 57px;
-    right: 0;
-    display: block;
-    background: #ff5851;
-    width: 100%;
+  position: fixed;
+  text-align: center;
+  color:$white;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  top: 57px;
+  right: 0;
+  display: block;
+  background: #ff5851;
+  width: 100%;
+
     @include md {
         width: 66.666%;
     }
@@ -191,19 +217,17 @@ body {
 }
 
 .notice {
-    position: absolute;
-    width: 85%;
-    text-align: center;
-    margin: 0 auto;
-    left:0;
-    right:0;
-    font-size: 0.6em;
-    color: #fff;
-    font-weight: 100;
-    background: $salmon;
-    padding: 10px 20px 5px;
-     // -webkit-animation: fadeIn 3s forwards;
-     // animation: fadeIn 3s forwards;
+  position: absolute;
+  width: 85%;
+  text-align: center;
+  margin: 0 auto;
+  left:0;
+  right:0;
+  font-size: 0.6em;
+  color: #fff;
+  font-weight: 100;
+  background: $salmon;
+  padding: 10px 20px 5px;
 }
 
 .notice::before{
@@ -212,15 +236,6 @@ body {
   content: "\f058";
   display: block;
 }
-
-
-
-.navbar{
-  position: fixed;
-  z-index: 5;
-  width: 100%;
-}
-
 
 .todo_list_body{
   background: $navy;
@@ -239,14 +254,16 @@ body {
 	text-transform: uppercase;
 	color: $navy;
 	margin-bottom: 0;
-	a {
-		text-decoration: none;
-		color: $navy;
-		transition: all .4s ease-in-out;
-		&:hover {
-			opacity: 0.5;
-		}
-	}
+
+    a {
+  		text-decoration: none;
+  		color: $navy;
+  		transition: all .4s ease-in-out;
+
+        &:hover {
+    			opacity: 0.5;
+    		}
+  	}
 }
 
 .todo_list_sub_title {
@@ -262,12 +279,14 @@ body {
 	padding: 2em;
 	border-bottom: 2px solid $salmon;
   transition: all .4s ease-in-out;
-	.todo_list_sub_title {
-		margin-bottom: 0;
-	}
-  &:hover{
-    background: $grey;
-  }
+
+    .todo_list_sub_title {
+  		margin-bottom: 0;
+  	}
+
+    &:hover{
+      background: $grey;
+    }
 }
 
 #todo_items_wrapper {
@@ -339,42 +358,31 @@ body {
 	}
 	#form {
 		margin-top: 2em;
-		input[type="text"]{
-      display: inline-block;
-      height: 40px;
-      padding: 1em;
-      border-color: $navy;
-      border-radius: 0;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      border-top: 0;
-      border-left: 0;
-      border-right: 0;
-      margin-bottom: .75em;
-		  }
+  		input[type="text"]{
+        display: inline-block;
+        height: 40px;
+        padding: 1em;
+        border-color: $navy;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        margin-bottom: .75em;
+  		  }
 		}
-}
-
-
-
-.links {
-	display: block;
-	margin: 1.5em auto 0 auto;
-	text-align: center;
-	font-size: 0.8em;
-	color: $salmon;
-	a {
-		color: $salmon;
-	}
 }
 
 .forms {
 	padding: 0 2.5%;
 }
+
 label {
 	color: $navy;
   margin-bottom: 0;
 }
+
 input[type="text"], textarea, input#password, input#user_password, input#user_password_confirmation {
 width: 100%;
 display: inline-block;
@@ -389,6 +397,7 @@ border-left: 0;
 border-right: 0;
 margin-bottom: .75em;
 }
+
 textarea {
 	height: 200px;
   border-left: 2px solid $navy;

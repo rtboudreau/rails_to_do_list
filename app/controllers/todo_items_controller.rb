@@ -1,5 +1,5 @@
 class TodoItemsController < ApplicationController
-  
+
   before_action :set_todo_list
   before_action :set_todo_item, except: [:create]
 
@@ -9,8 +9,8 @@ class TodoItemsController < ApplicationController
   end
 
   def complete
-    @todo_item.update_attribute(:completed_at, Time.now)
-    redirect_to @todo_list, success: 'Task Completed!'
+    @todo_item.toggle_completion
+    redirect_to @todo_list, success: 'Item Updated!'
   end
 
   def destroy
