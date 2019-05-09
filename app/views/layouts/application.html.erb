@@ -32,14 +32,15 @@
         <% else %>
           <%= link_to image_tag("todo_logo_no_login.svg", :alt => "to-dos' logged out logo", :class => "navbar-logo pl-4 pl-sm-0"), login_path, {class: 'navbar-brand'} %>
         <% end %>
-
+        
+        <% if logged_in?  %>
         <button class="navbar-toggler mr-4 navbar-light" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav bg-white ml-auto">
-            <% if logged_in?  %>
+
               <li class="nav-item nav_icon px-4 px-sm-0">
                 <%= link_to current_user.username.capitalize, user_path(session[:user_id]), {class: 'nav-link'} %>
               </li>
@@ -53,10 +54,10 @@
               <li class="nav-item">
                   <%= link_to "Sign Up", new_user_path, {class: 'nav-link sign-up'} %>
               </li>
-            <% end %>
+
           </ul>
         </div>
-
+        <% end %>
       </div>
     </nav>
 

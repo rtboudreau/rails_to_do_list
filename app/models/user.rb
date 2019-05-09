@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   validates :username, {presence: true, uniqueness: true, length: {:within => 4..40}}
-  validates :password, {presence: true, password_strength: true}
+  validates :password, {presence: true, length: {:within => 6..40}}
   has_many :todo_items
   has_many :todo_lists
 
