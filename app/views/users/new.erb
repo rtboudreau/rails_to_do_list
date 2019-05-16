@@ -1,7 +1,7 @@
 <div class="col-lg-8 mx-auto">
    <% if flash[:messages] %>
      <% flash[:messages].each do |message| %>
-     <p><%= message %></p>
+     <p class = "error"><i class="fas fa-exclamation"></i> <%= message %></p>
      <% end %>
    <% end %>
    <h3 class="login-heading mb-4">Sign Up for To-Dos!</h3>

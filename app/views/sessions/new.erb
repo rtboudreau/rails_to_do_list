@@ -1,6 +1,6 @@
 <div class="col-lg-8 mx-auto">
    <% if flash[:message] %>
-   <h3><%= flash[:message] %></h3>
+   <p class="error"><i class="fas fa-exclamation"></i> <%= flash[:message] %></p>
    <% end %>
    <h3 class="login-heading mb-4">Welcome back!</h3>
    <%= form_tag login_path%>
