@@ -13,78 +13,69 @@
  *= require_tree .
  *= require_self
  */
- @import 'bootstrap';
-
- // Small tablets and large smartphones (landscape view)
- $screen-sm-min: 576px;
- // Small tablets (portrait view)
- $screen-md-min: 768px;
- // Tablets and small desktops
- $screen-lg-min: 992px;
- // Large tablets and desktops
- $screen-xl-min: 1200px;
-
- // Small devices
+@import 'bootstrap'; // Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px; // Small tablets (portrait view)
+$screen-md-min: 768px; // Tablets and small desktops
+$screen-lg-min: 992px; // Large tablets and desktops
+$screen-xl-min: 1200px; // Small devices
 @mixin sm {
-   @media (min-width: #{$screen-sm-min}) {
-       @content;
-   }
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
 }
 // Medium devices
 @mixin md {
-   @media (min-width: #{$screen-md-min}) {
-       @content;
-   }
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
 }
 // Large devices
 @mixin lg {
-   @media (min-width: #{$screen-lg-min}) {
-       @content;
-   }
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
 }
 // Extra large devices
 @mixin xl {
-   @media (min-width: #{$screen-xl-min}) {
-       @content;
-   }
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
 }
-
- $salmon: rgb(255, 87, 81);
- $navy: rgb(4, 15, 61);
- $navy_o:rgba(4, 15, 61, .5);
- $white: rgb(255, 255, 255);
- $grey: rgb(222, 222, 222);
+$salmon: rgb(255, 87, 81);
+$navy: rgb(4, 15, 61);
+$navy_o: rgba(4, 15, 61, .5);
+$white: rgb(255, 255, 255);
+$grey: rgb(222, 222, 222);
 
 * {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
+
 html {
   height: 100%;
 }
 
 body {
- 	height: 100%;
+  height: 100%;
   background: $white;
   font-family: 'Lato', sans-serif;
 }
 
-li{
+li {
   list-style: none;
 }
 
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
+.clearfix:after,
+.clearfix:before {
+  content: " ";
+  display: table;
 }
 
 .clearfix:after {
-    clear: both;
+  clear: both;
 }
-
 /*buttons*/
-
 .btn-login {
   font-size: 0.9rem;
   letter-spacing: 0.05rem;
@@ -92,21 +83,20 @@ li{
   border-radius: 2rem;
 }
 
-.btn-todo{
+.btn-todo {
   color: $white;
   background: $navy;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+
   &:hover {
     color: $white;
     opacity: 0.75;
   }
 }
-
 /*login & app layout */
-
-.login,
-.image {
+.image,
+.login {
   min-height: 100vh;
 }
 
@@ -114,19 +104,19 @@ li{
   font-weight: 600;
 }
 
-.navbar{
+.navbar {
   background: $white;
   -webkit-box-shadow: 0 0 5px -1px rgba(0,0,0,0.35);
-          box-shadow: 0 0 5px -1px rgba(0,0,0,0.35);
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.35);
   height: 60px;
   position: fixed;
   z-index: 5;
   width: 100%;
 
-    a{
-      color: $navy;
-      letter-spacing: .02rem;
-    }
+  a {
+    color: $navy;
+    letter-spacing: 0.02rem;
+  }
 }
 
 .navbar-logo {
@@ -137,37 +127,36 @@ li{
   display: inline-block;
 }
 
-.nav_icon::before{
+.nav_icon::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 800;
-  color:$salmon;
+  color: $salmon;
   content: "\f2bd";
   display: inline-block;
-
-    @include sm {
-      margin-right: -5px;
-    }
+  @include sm {
+    margin-right: -5px;
+  }
 }
 
 .navbar-collapse {
   margin-top: 10px;
-  -webkit-box-shadow: 0px 6px 7px -2px rgba(0,0,0,0.15);
-          box-shadow: 0px 6px 7px -2px rgba(0,0,0,0.15);
-
-    @include sm {
-      margin-top: 0;
-      -webkit-box-shadow: none;
-              box-shadow: none;
-    }
+  -webkit-box-shadow: 0 6px 7px -2px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 7px -2px rgba(0,0,0,0.15);
+  @include sm {
+    margin-top: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
 }
 
 .bg-image-grey {
   background-image: image-url("todos_background_1000.jpg");
   -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
+  filter: grayscale(100%);
   background-size: cover;
   background-position: center;
 }
+
 .bg-image {
   background-image: image-url("todos_background_1000.jpg");
   background-size: cover;
@@ -177,48 +166,46 @@ li{
 .sign-up {
   color: $salmon !important;
   border: 1px solid $navy;
-  font-size: .85em;
+  font-size: 0.85em;
   font-weight: 800;
   padding: 10px;
   margin-right: 20px;
   border-radius: 4px;
   width: 115px;
   text-align: center;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
-    &:hover{
-      background: $grey;
-    }
-    @include sm {
-      margin-right: 0;
-    }
+  &:hover {
+    background: $grey;
+  }
+  @include sm {
+    margin-right: 0;
+  }
 }
 
 .links {
-	display: block;
-	margin: 1.5em auto 0 auto;
-	text-align: center;
-	font-size: 0.8em;
-	color: $salmon;
+  display: block;
+  margin: 1.5em auto 0;
+  text-align: center;
+  font-size: 0.8em;
+  color: $salmon;
 
-    a {
-  		color: $salmon;
-  	}
+  a {
+    color: $salmon;
+  }
 }
 
-.error{
+.error {
   color: $salmon;
   font-size: 0.85em;
   line-height: 1em;
 }
-
 /* user homepage info bar */
-
 .user_info_bar {
   position: fixed;
   text-align: center;
-  color:$white;
+  color: $white;
   font-weight: 400;
   letter-spacing: 0.08em;
   top: 57px;
@@ -226,13 +213,12 @@ li{
   display: block;
   background: #ff5851;
   width: 100%;
-
-    @include md {
-        width: 66.666%;
-    }
-    @include lg{
-      width: 50%;
-    }
+  @include md {
+    width: 66.666%;
+  }
+  @include lg {
+    width: 50%;
+  }
 }
 
 .notice {
@@ -240,8 +226,8 @@ li{
   width: 85%;
   text-align: center;
   margin: 0 auto;
-  left:0;
-  right:0;
+  left: 0;
+  right: 0;
   font-size: 0.6em;
   color: #fff;
   font-weight: 100;
@@ -249,14 +235,14 @@ li{
   padding: 10px 20px 5px;
 }
 
-.notice::before{
+.notice::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 400;
   content: "\f058";
   display: block;
 }
 
-.todo_list_body{
+.todo_list_body {
   background: $navy;
   -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,0.13);
   box-shadow: 0 0 4px 4px rgba(0,0,0,0.13);
@@ -267,164 +253,182 @@ li{
 }
 
 .todo_list_title {
-	text-align: center;
-	font-weight: 700;
-	font-size: 2.5rem;
-	text-transform: uppercase;
-	color: $navy;
-	margin-bottom: 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: $navy;
+  margin-bottom: 0;
 
-    a {
-  		text-decoration: none;
-  		color: $navy;
-  		-webkit-transition: all .4s ease-in-out;
-  		transition: all .4s ease-in-out;
+  a {
+    text-decoration: none;
+    color: $navy;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 
-        &:hover {
-    			opacity: 0.5;
-    		}
-  	}
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 }
 
 .todo_list_sub_title {
-	margin: 0 0 2em 0;
-	text-align: center;
+  margin: 0 0 2em;
+  text-align: center;
   text-transform: capitalize;
-	font-size: 1em;
-	color: $navy;
-	font-weight: 200;
+  font-size: 1em;
+  color: $navy;
+  font-weight: 200;
 }
 
 .index_row {
-	padding: 2em;
-	border-bottom: 2px solid $salmon;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  padding: 2em;
+  border-bottom: 2px solid $salmon;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
-    .todo_list_sub_title {
-  		margin-bottom: 0;
-  	}
+  .todo_list_sub_title {
+    margin-bottom: 0;
+  }
 
-    &:hover{
-      background: $grey;
-    }
+  &:hover {
+    background: $grey;
+  }
 }
 
 #todo_items_wrapper {
-	.row {
-		border-bottom: 2px solid rgba(250,250,250, .3);
-		.complete, .blank {
-			width: 10%;
-			float: left;
-			text-align: center;
-			padding: 1em 0;
-		}
-		.todo_item, .new_todo {
-			width: 80%;
-			float: left;
-			p {
-				margin: 0;
-				padding: 1em;
-				color: $navy;
-				font-weight: 400;
-			}
-		}
-		.trash{
+  .row {
+    border-bottom: 2px solid rgba(250,250,250, .3);
+
+    .blank,
+    .complete {
+      width: 10%;
+      float: left;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    .new_todo,
+    .todo_item {
+      width: 80%;
+      float: left;
+
+      p {
+        margin: 0;
+        padding: 1em;
+        color: $navy;
+        font-weight: 400;
+      }
+    }
+
+    .trash {
       width: 10%;
       height: 100%;
       float: left;
       text-align: center;
       padding: 1em 0;
+
       i {
-      color: $navy;
-      -webkit-transition: all .4s ease-in-out;
-      transition: all .4s ease-in-out;
+        color: $navy;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+
         &:hover {
           opacity: 1;
           color: $white;
-          }
-        }
-        &:hover{
-          background: $salmon;
-
         }
       }
-      .new_todo_submit{
-        width: 10%;
-        height: 100%;
-        float: left;
-        text-align: center;
-        padding: 0.5em 0;
-        background: transparent;
-        border: none;
-        font-size: 1.25em;
-        i {
-        color: $salmon;
-        -webkit-transition: all .4s ease-in-out;
-        transition: all .4s ease-in-out;
-          &:hover {
-            color: $salmon;
-            opacity: 1;
-            -webkit-transform: scale(1.25);
-                    transform: scale(1.25);
-            }
+
+      &:hover {
+        background: $salmon;
       }
     }
 
-		i {
-			color: $navy;
-			-webkit-transition: all .4s ease-in-out;
-			transition: all .4s ease-in-out;
-			&:hover {
-        opacity: .5;
-				color: $navy;
-			}
-		}
-	}
-	#form {
-		margin-top: 2em;
-  		input[type="text"]{
-        display: inline-block;
-        height: 40px;
-        padding: 1em;
-        border-color: $navy;
-        border-radius: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        border-top: 0;
-        border-left: 0;
-        border-right: 0;
-        margin-bottom: .75em;
-  		  }
-		}
+    .new_todo_submit {
+      width: 10%;
+      height: 100%;
+      float: left;
+      text-align: center;
+      padding: 0.5em 0;
+      background: transparent;
+      border: none;
+      font-size: 1.25em;
+
+      i {
+        color: $salmon;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+          color: $salmon;
+          opacity: 1;
+          -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+        }
+      }
+    }
+
+    i {
+      color: $navy;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+
+      &:hover {
+        opacity: 0.5;
+        color: $navy;
+      }
+    }
+  }
+
+  #form {
+    margin-top: 2em;
+
+    input[type="text"] {
+      display: inline-block;
+      height: 40px;
+      padding: 1em;
+      border-color: $navy;
+      border-radius: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      margin-bottom: 0.75em;
+    }
+  }
 }
 
 .forms {
-	padding: 0 2.5%;
+  padding: 0 2.5%;
 }
 
 label {
-	color: $navy;
+  color: $navy;
   margin-bottom: 0;
 }
 
-input[type="text"], textarea, input#password, input#user_password, input#user_password_confirmation {
-width: 100%;
-display: inline-block;
-height: 40px;
-padding: 1em;
-border-color: $navy;
-border-radius: 0;
--webkit-box-shadow: none;
-box-shadow: none;
-border-top: 0;
-border-left: 0;
-border-right: 0;
-margin-bottom: .75em;
+input[type="text"],
+textarea,
+input#password,
+input#user_password,
+input#user_password_confirmation {
+  width: 100%;
+  display: inline-block;
+  height: 40px;
+  padding: 1em;
+  border-color: $navy;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  margin-bottom: 0.75em;
 }
 
 textarea {
-	height: 200px;
+  height: 200px;
   border-left: 2px solid $navy;
   border-bottom: 2px solid $navy;
 }
